@@ -30,19 +30,25 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UITilePanelViewController : UIViewController {
-    UILabel *titleLabel;
+typedef enum {
+    IMScrollDirectionVertical = 0,
+    IMScrollDirectionHorizontal
+} IMScrollDirection;
+
+@interface UITilePanelViewController : UIView {
     UIScrollView *container;
+    UIPageControl *pageControl;
 }
 
-@property (retain, nonatomic) NSString *titleText;
 @property (retain, nonatomic) NSMutableArray *tiles;
+@property (assign, nonatomic) IMScrollDirection scrolDirection;
+@property (assign, nonatomic) BOOL pagingEnable;
 
 @property float horizontalMargin;
 @property float verticalMargin;
 @property float horizontalPadding;
 @property float verticalPadding;
 
-- (id) init;
+- (void) reloadData;
 
 @end

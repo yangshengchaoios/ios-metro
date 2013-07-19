@@ -37,55 +37,39 @@
 #define TITLE_FONT_SIZE 48.0
 #define TILE_MARGIN 8.0
 
-@implementation UITilePanelViewController
+@implementation UITilePanelView
 
-@synthesize titleText;
 @synthesize tiles;
+@synthesize scrolDirection;
+
 @synthesize verticalMargin;
 @synthesize horizontalMargin;
 @synthesize horizontalPadding;
 @synthesize verticalPadding;
 
-- (id) init
-{
+- (id)initWithFrame:(CGRect)frame {
     self = [super init];
     if (self) {
-        self.verticalMargin = 0.0;
-        self.horizontalMargin = 0.0;
-        self.titleText = @"";
         self.tiles = [[NSMutableArray alloc] init];
+        self.scrolDirection = IMScrollDirectionVertical;
+        self.pagingEnable = NO;
     }
     return self;
 }
 
-- (void) viewDidLoad {
-    self.view.multipleTouchEnabled = NO;
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.jpg"]];
-    
-    if (![self.titleText isEqualToString:@""]) {
-        titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.horizontalMargin + self.horizontalPadding,
-                                                               self.verticalMargin,
-                                                               self.view.frame.size.width - ((self.horizontalMargin + self.horizontalPadding )* 2),
-                                                               HEADER_HEIGHT)];
-        titleLabel.backgroundColor = [UIColor clearColor];
-        titleLabel.text = self.titleText;
-        titleLabel.textColor = [UIColor whiteColor];
-        titleLabel.font = [UIFont fontWithName:TITLE_FONT_NAME size:TITLE_FONT_SIZE];
-        [self.view addSubview:titleLabel];
-    }
-    
-    container = [[UIScrollView alloc] initWithFrame:CGRectMake(self.horizontalMargin,
-                                                              self.verticalMargin + HEADER_HEIGHT,
-                                                              self.view.frame.size.width - (self.horizontalMargin * 2),
-                                                              self.view.frame.size.height - HEADER_HEIGHT - FOOTER_HEIGHT - (self.verticalMargin * 2))];
+- (void)reloadData {
+    self.multipleTouchEnabled = NO;
+    container = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0,
+                                                              self.frame.size.width - (self.horizontalMargin * 2),
+                                                              self.frame.size.height - HEADER_HEIGHT - FOOTER_HEIGHT - (self.verticalMargin * 2))];
     container.showsHorizontalScrollIndicator = NO;
     container.showsVerticalScrollIndicator = NO;
-    container.pagingEnabled = YES;
+    container.pagingEnabled = self.pagingEnable;
     container.directionalLockEnabled = YES;
     
     [self arrangeTiles];
     
-    [self.view addSubview:container];
+    [self addSubview:container];
     
     container.autoresizesSubviews = NO;
 }
@@ -124,15 +108,14 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     [container setFrame:CGRectMake(self.horizontalMargin,
                                    self.verticalMargin + HEADER_HEIGHT,
-                                   self.view.frame.size.width - (self.horizontalMargin * 2),
-                                   self.view.frame.size.height - HEADER_HEIGHT - FOOTER_HEIGHT - (self.verticalMargin * 2))];
+                                   self.frame.size.width - (self.horizontalMargin * 2),
+                                   self.frame.size.height - HEADER_HEIGHT - FOOTER_HEIGHT - (self.verticalMargin * 2))];
     [self arrangeTiles];
     return YES;
 }
 
 - (void) dealloc {
-    [titleLabel release];
-    [titleText release];
+    [pageControl release];
     [tiles release];
     [super dealloc];
 }

@@ -48,11 +48,6 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
 
     UITilePanelViewController *panelView = [[UITilePanelViewController alloc] init];
-    panelView.titleText = @"iOS Metro";
-    panelView.horizontalMargin = 0.0;
-    panelView.verticalMargin = 20.0;
-    panelView.horizontalPadding = 40.0;
-    panelView.verticalPadding = 20.0;
     
     [self createDemoTiles:panelView];
     

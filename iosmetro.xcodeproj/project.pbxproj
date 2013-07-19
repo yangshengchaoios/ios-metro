@@ -13,7 +13,7 @@
 		61C935B0160CC23B003860BA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61C935AE160CC23B003860BA /* InfoPlist.strings */; };
 		61C935B2160CC23B003860BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C935B1160CC23B003860BA /* main.m */; };
 		61C935B6160CC23B003860BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C935B5160CC23B003860BA /* AppDelegate.m */; };
-		61C935C9160CC253003860BA /* UITilePanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C935BE160CC253003860BA /* UITilePanelViewController.m */; };
+		61C935C9160CC253003860BA /* UITilePanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C935BE160CC253003860BA /* UITilePanelView.m */; };
 		61C935CA160CC253003860BA /* UITileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C935C0160CC253003860BA /* UITileViewController.m */; };
 		61C935CB160CC253003860BA /* SegoeWP-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C935C2160CC253003860BA /* SegoeWP-Black.ttf */; };
 		61C935CC160CC253003860BA /* SegoeWP-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C935C3160CC253003860BA /* SegoeWP-Bold.ttf */; };
@@ -61,8 +61,8 @@
 		61C935B3160CC23B003860BA /* iosmetro-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iosmetro-Prefix.pch"; sourceTree = "<group>"; };
 		61C935B4160CC23B003860BA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		61C935B5160CC23B003860BA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		61C935BD160CC253003860BA /* UITilePanelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITilePanelViewController.h; sourceTree = "<group>"; };
-		61C935BE160CC253003860BA /* UITilePanelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITilePanelViewController.m; sourceTree = "<group>"; };
+		61C935BD160CC253003860BA /* UITilePanelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITilePanelView.h; sourceTree = "<group>"; };
+		61C935BE160CC253003860BA /* UITilePanelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITilePanelView.m; sourceTree = "<group>"; };
 		61C935BF160CC253003860BA /* UITileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITileViewController.h; sourceTree = "<group>"; };
 		61C935C0160CC253003860BA /* UITileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITileViewController.m; sourceTree = "<group>"; };
 		61C935C2160CC253003860BA /* SegoeWP-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SegoeWP-Black.ttf"; sourceTree = "<group>"; };
@@ -173,8 +173,8 @@
 		61C935BC160CC253003860BA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				61C935BD160CC253003860BA /* UITilePanelViewController.h */,
-				61C935BE160CC253003860BA /* UITilePanelViewController.m */,
+				61C935BD160CC253003860BA /* UITilePanelView.h */,
+				61C935BE160CC253003860BA /* UITilePanelView.m */,
 				61C935BF160CC253003860BA /* UITileViewController.h */,
 				61C935C0160CC253003860BA /* UITileViewController.m */,
 				61C935D4160D017C003860BA /* UIClockTileViewController.h */,
@@ -321,7 +321,7 @@
 			files = (
 				61C935B2160CC23B003860BA /* main.m in Sources */,
 				61C935B6160CC23B003860BA /* AppDelegate.m in Sources */,
-				61C935C9160CC253003860BA /* UITilePanelViewController.m in Sources */,
+				61C935C9160CC253003860BA /* UITilePanelView.m in Sources */,
 				61C935CA160CC253003860BA /* UITileViewController.m in Sources */,
 				61C935D7160D017C003860BA /* UIClockTileViewController.m in Sources */,
 			);
@@ -398,6 +398,7 @@
 				INFOPLIST_FILE = "iosmetro/iosmetro-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -410,6 +411,7 @@
 				INFOPLIST_FILE = "iosmetro/iosmetro-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
